@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupyter Notebook — generated with runcell</title>
+    <meta name="description" content="Exported with runcell — convert .ipynb notebooks to HTML or PDF anytime at runcell.dev." />
+    <meta name="generator" content="runcell" />
+    <style>
+        :root {
+            --jp-code-font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+            --jp-content-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            --jp-cell-prompt-width: 64px;
+            --jp-input-prompt-color: #307fc1;
+            --jp-output-prompt-color: #bf5b3d;
+            --jp-cell-input-bg: #f7f7f7;
+            --jp-layout-color0: #ffffff;
+            --jp-layout-color1: #f7f7f7;
+            --jp-border-color1: #e0e0e0;
+            --jp-content-font-color0: #000000;
+            --jp-content-font-color1: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--jp-content-font-family);
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--jp-content-font-color0);
+            background-color: var(--jp-layout-color0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .notebook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cell structure */
+        .cell {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cell-prompt {
+            min-width: var(--jp-cell-prompt-width);
+            width: var(--jp-cell-prompt-width);
+            font-family: var(--jp-code-font-family);
+            font-size: 12px;
+            padding: 10px 8px 10px 0;
+            text-align: right;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .cell-content {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        /* Input prompt styling - Jupyter blue */
+        .input-prompt {
+            color: var(--jp-input-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Output prompt styling - Jupyter red/orange */
+        .output-prompt {
+            color: var(--jp-output-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Code cell input area */
+        .input-area {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            overflow-x: auto;
+        }
+
+        .input-area pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Output area */
+        .output-area {
+            margin-top: 0;
+        }
+
+        .output-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin-top: 4px;
+        }
+
+        .output-content {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 0;
+        }
+
+        .output-content pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Stream output (stdout/stderr) */
+        .output-stream {
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .output-stderr {
+            background-color: #fdd;
+            padding: 8px 12px;
+            border-radius: 2px;
+        }
+
+        /* Execute result / display data */
+        .output-result {
+            padding: 4px 0;
+        }
+
+        .output-result pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+        }
+
+        /* Image output */
+        .output-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* HTML output (DataFrames, etc.) */
+        .output-html {
+            overflow-x: auto;
+        }
+
+        .output-html table {
+            border-collapse: collapse;
+            font-size: 13px;
+            font-family: var(--jp-content-font-family);
+        }
+
+        .output-html table th,
+        .output-html table td {
+            border: 1px solid #ddd;
+            padding: 6px 10px;
+            text-align: left;
+        }
+
+        .output-html table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .output-html table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Error output */
+        .output-error {
+            background-color: #fff0f0;
+            padding: 8px 12px;
+            border-radius: 2px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Markdown cell styling */
+        .markdown-cell {
+            padding: 10px 0;
+        }
+
+        .markdown-cell h1 {
+            font-size: 2em;
+            font-weight: 600;
+            margin: 0.67em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0.83em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            margin: 1em 0;
+        }
+
+        .markdown-cell h4 {
+            font-size: 1em;
+            font-weight: 600;
+            margin: 1.33em 0;
+        }
+
+        .markdown-cell h5 {
+            font-size: 0.875em;
+            font-weight: 600;
+            margin: 1.67em 0;
+        }
+
+        .markdown-cell h6 {
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2.33em 0;
+            color: #6a737d;
+        }
+
+        .markdown-cell p {
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+
+        .markdown-cell code {
+            font-family: var(--jp-code-font-family);
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        .markdown-cell pre {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 3px;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 85%;
+            line-height: 1.45;
+        }
+
+        .markdown-cell pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: 100%;
+        }
+
+        .markdown-cell blockquote {
+            margin: 0 0 16px 0;
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 4px solid #dfe2e5;
+        }
+
+        .markdown-cell ul,
+        .markdown-cell ol {
+            margin: 0 0 16px 0;
+            padding-left: 2em;
+        }
+
+        .markdown-cell li {
+            margin: 0.25em 0;
+        }
+
+        .markdown-cell a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .markdown-cell a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-cell hr {
+            border: 0;
+            border-top: 1px solid var(--jp-border-color1);
+            margin: 24px 0;
+        }
+
+        .markdown-cell img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .markdown-cell table {
+            border-collapse: collapse;
+            margin: 0 0 16px 0;
+        }
+
+        .markdown-cell table th,
+        .markdown-cell table td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .markdown-cell table th {
+            font-weight: 600;
+            background-color: #f6f8fa;
+        }
+
+        .markdown-cell table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        /* Raw cell styling */
+        .raw-cell {
+            background-color: var(--jp-layout-color1);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Empty prompt placeholder */
+        .prompt-empty {
+            color: transparent;
+        }
+
+        .export-footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--jp-border-color1);
+            color: #555;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .export-footer a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .export-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h1>Trabalho Prático – Machine Learning (Parte I)</h1><br><br><h2>Dataset escolhido: NASA Airfoil Self-Noise</h2><br><br><h3>Objetivo</h3><br><br>O objetivo deste trabalho é desenvolver um modelo de Machine Learning capaz de prever o nível de pressão sonora produzido por uma asa de aeronave a partir de diferentes características medidas em testes realizados em túnel de vento.<br><br>Para isso, será utilizado o dataset NASA Airfoil Self-Noise, aplicando técnicas de preparação dos dados, seleção de atributos, divisão entre treinamento e teste, treinamento de um algoritmo supervisionado e geração de predições para novos dados.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [100]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Importação das bibliotecas
+
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.feature_selection import SelectKBest, f_regression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error
+
+print("Bibliotecas carregadas com sucesso!")</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Bibliotecas carregadas com sucesso!
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Carregamento do dataset</h2><br><br>Nesta etapa será realizado o carregamento do dataset NASA Airfoil Self-Noise. Em seguida, serão exibidas as primeiras linhas da base de dados para compreender sua estrutura e verificar quais informações estão disponíveis para o treinamento do modelo de Machine Learning.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [101]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Carregando o dataset
+
+df = pd.read_csv("nasa.csv", sep=";")
+
+# Exibindo as cinco primeiras linhas
+df.head()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[101]:</div>
+                        <div class="output-content">
+                            <div class="output-html">
+  <div id="df-90d611ef-08d0-4b38-8ab0-3951b0c21a36" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>frequency</th>
+      <th>attack-angle</th>
+      <th>chord-length</th>
+      <th>free-stream-velocity</th>
+      <th>suction-side-displacement-thickness</th>
+      <th>scaled-sound-pressure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>800</td>
+      <td>0.0</td>
+      <td>0.3048</td>
+      <td>71.3</td>
+      <td>0.002663</td>
+      <td>126.201</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1000</td>
+      <td>0.0</td>
+      <td>0.3048</td>
+      <td>71.3</td>
+      <td>0.002663</td>
+      <td>125.201</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1250</td>
+      <td>0.0</td>
+      <td>0.3048</td>
+      <td>71.3</td>
+      <td>0.002663</td>
+      <td>125.951</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1600</td>
+      <td>0.0</td>
+      <td>0.3048</td>
+      <td>71.3</td>
+      <td>0.002663</td>
+      <td>127.591</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000</td>
+      <td>0.0</td>
+      <td>0.3048</td>
+      <td>71.3</td>
+      <td>0.002663</td>
+      <td>127.461</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-90d611ef-08d0-4b38-8ab0-3951b0c21a36')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-90d611ef-08d0-4b38-8ab0-3951b0c21a36 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-90d611ef-08d0-4b38-8ab0-3951b0c21a36');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Análise inicial dos dados</h2><br><br>Após carregar o dataset, é importante verificar o tamanho da base de dados, os tipos das variáveis e identificar possíveis valores ausentes antes de iniciar o processo de preparação dos dados.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [102]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Informações gerais do dataset
+
+df.info()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 1503 entries, 0 to 1502
+Data columns (total 6 columns):
+ #   Column                               Non-Null Count  Dtype  
+---  ------                               --------------  -----  
+ 0   frequency                            1503 non-null   int64  
+ 1   attack-angle                         1503 non-null   float64
+ 2   chord-length                         1503 non-null   float64
+ 3   free-stream-velocity                 1503 non-null   float64
+ 4   suction-side-displacement-thickness  1503 non-null   float64
+ 5   scaled-sound-pressure                1503 non-null   float64
+dtypes: float64(5), int64(1)
+memory usage: 70.6 KB
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [103]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Estatísticas descritivas
+
+df.describe()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[103]:</div>
+                        <div class="output-content">
+                            <div class="output-html">
+  <div id="df-eb889277-5393-4b51-8aed-5fe031aaff1b" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>frequency</th>
+      <th>attack-angle</th>
+      <th>chord-length</th>
+      <th>free-stream-velocity</th>
+      <th>suction-side-displacement-thickness</th>
+      <th>scaled-sound-pressure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1503.000000</td>
+      <td>1503.000000</td>
+      <td>1503.000000</td>
+      <td>1503.000000</td>
+      <td>1503.000000</td>
+      <td>1503.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2886.380572</td>
+      <td>6.782302</td>
+      <td>0.136548</td>
+      <td>50.860745</td>
+      <td>0.011140</td>
+      <td>124.835943</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3152.573137</td>
+      <td>5.918128</td>
+      <td>0.093541</td>
+      <td>15.572784</td>
+      <td>0.013150</td>
+      <td>6.898657</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>200.000000</td>
+      <td>0.000000</td>
+      <td>0.025400</td>
+      <td>31.700000</td>
+      <td>0.000401</td>
+      <td>103.380000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>800.000000</td>
+      <td>2.000000</td>
+      <td>0.050800</td>
+      <td>39.600000</td>
+      <td>0.002535</td>
+      <td>120.191000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1600.000000</td>
+      <td>5.400000</td>
+      <td>0.101600</td>
+      <td>39.600000</td>
+      <td>0.004957</td>
+      <td>125.721000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4000.000000</td>
+      <td>9.900000</td>
+      <td>0.228600</td>
+      <td>71.300000</td>
+      <td>0.015576</td>
+      <td>129.995500</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>20000.000000</td>
+      <td>22.200000</td>
+      <td>0.304800</td>
+      <td>71.300000</td>
+      <td>0.058411</td>
+      <td>140.987000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-eb889277-5393-4b51-8aed-5fe031aaff1b')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-eb889277-5393-4b51-8aed-5fe031aaff1b button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-eb889277-5393-4b51-8aed-5fe031aaff1b');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [104]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Verificando valores ausentes
+
+df.isnull().sum()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[104]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>frequency</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>attack-angle</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>chord-length</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>free-stream-velocity</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>suction-side-displacement-thickness</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>scaled-sound-pressure</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> int64</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Preparação dos dados</h2><br><br>Nesta etapa será realizada a preparação dos dados para o treinamento do modelo. O conjunto de dados será dividido entre variáveis independentes (atributos) e variável dependente (alvo). Em seguida, será aplicada uma técnica de seleção de atributos utilizando o método SelectKBest, conforme solicitado na atividade.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [105]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Separando atributos e variável alvo
+
+X = df.drop("scaled-sound-pressure", axis=1)
+
+y = df["scaled-sound-pressure"]
+
+print("Número de atributos:", X.shape[1])
+print("Número de registros:", X.shape[0])</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Número de atributos: 5
+Número de registros: 1503
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [106]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Seleção de atributos
+
+from sklearn.feature_selection import SelectKBest, f_regression
+
+seletor = SelectKBest(score_func=f_regression, k=5)
+
+X_selecionado = seletor.fit_transform(X, y)
+
+print("Seleção de atributos realizada com sucesso!")</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Seleção de atributos realizada com sucesso!
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Divisão entre treinamento e teste</h2><br><br>Após a preparação dos dados, o dataset foi dividido em duas partes.<br><br>- <strong>75%</strong> dos registros serão utilizados para treinamento do algoritmo.<br>- <strong>25%</strong> serão utilizados para testar o modelo e verificar sua capacidade de realizar previsões para novos dados.<br><br>Essa divisão evita que o algoritmo memorize os dados utilizados durante o treinamento.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [107]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Divisão entre treino e teste
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X_selecionado,
+    y,
+    test_size=0.25,
+    random_state=42
+)
+
+print("Treinamento:", X_train.shape)
+print("Teste:", X_test.shape)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Treinamento: (1127, 5)
+Teste: (376, 5)
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Definição do tipo de problema</h2><br><br>O problema trabalhado neste dataset é de <strong>regressão</strong>, pois o objetivo é prever um valor numérico contínuo, correspondente à pressão sonora ("scaled-sound-pressure"). Diferentemente de um problema de classificação, não se deseja prever uma categoria, mas sim um valor real.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Treinamento do modelo</h2><br><br>Como o objetivo é prever um valor numérico (pressão sonora), este problema é classificado como um problema de <strong>regressão</strong>.<br><br>Para o treinamento será utilizado o algoritmo <strong>Random Forest Regressor</strong>, pertencente à biblioteca Scikit-Learn. Esse algoritmo é bastante utilizado por apresentar boa capacidade de previsão e reduzir problemas de sobreajuste (overfitting).</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [108]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Treinando o modelo
+
+from sklearn.ensemble import RandomForestRegressor
+
+modelo = RandomForestRegressor(
+    n_estimators=100,
+    random_state=42
+)
+
+modelo.fit(X_train, y_train)
+
+print("Modelo treinado com sucesso!")</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Modelo treinado com sucesso!
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Predições</h2><br><br>Após o treinamento, o modelo será utilizado para realizar previsões utilizando a base de testes, que corresponde a 25% do conjunto de dados.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [109]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Exibindo as 10 primeiras previsões
+
+print(predicoes[:10])</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">[123.78888 119.20461 119.58583 136.63966 134.26559 123.66401 123.83037
+ 134.53484 133.35931 127.70893]
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [110]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Comparando valores reais e previstos
+
+resultado = pd.DataFrame({
+    "Valor Real": y_test.values,
+    "Valor Previsto": predicoes
+})
+
+print("Primeiras 10 previsões:")
+
+resultado.head(10)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Primeiras 10 previsões:
+</div>
+                        </div>
+                    </div>
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[110]:</div>
+                        <div class="output-content">
+                            <div class="output-html">
+  <div id="df-c53967ac-92fd-4830-96e6-84ff60671204" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Valor Real</th>
+      <th>Valor Previsto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>125.045</td>
+      <td>123.78888</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>118.767</td>
+      <td>119.20461</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>120.233</td>
+      <td>119.58583</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>137.047</td>
+      <td>136.63966</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>134.556</td>
+      <td>134.26559</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>120.766</td>
+      <td>123.66401</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>124.525</td>
+      <td>123.83037</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>136.798</td>
+      <td>134.53484</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>130.123</td>
+      <td>133.35931</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>123.991</td>
+      <td>127.70893</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c53967ac-92fd-4830-96e6-84ff60671204')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-c53967ac-92fd-4830-96e6-84ff60671204 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-c53967ac-92fd-4830-96e6-84ff60671204');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Conclusão</h2><br><br>Neste trabalho foi desenvolvido um modelo de Machine Learning utilizando o dataset NASA Airfoil Self-Noise.<br><br>Inicialmente foi realizado o carregamento e a análise dos dados, seguida pela preparação da base e aplicação da técnica de seleção de atributos utilizando o método SelectKBest.<br><br>Posteriormente, o conjunto de dados foi dividido entre treinamento (75%) e teste (25%). O algoritmo Random Forest Regressor foi treinado utilizando a base de treinamento e, ao final, realizou previsões para a base de testes.<br><br>Os resultados demonstram que o modelo foi capaz de gerar previsões para novos registros, atendendo ao objetivo proposto pela atividade.</div>
+            </div>
+        </div>
+    </div>
+    <footer class="export-footer">
+        Exported with <a href="https://www.runcell.dev/tool/ipynb-to-html">runcell</a> — convert notebooks to HTML or PDF anytime at runcell.dev.
+    </footer>
+</body>
+</html>
